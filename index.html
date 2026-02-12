@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    
+    <!-- GOOGLE VERIFICATION -->
+    <meta name="google-site-verification" content="gRibrxvAVfKmyEyLhjcyqbpZHadMqNL008unLreiyqs" />
+    
+    <!-- SEO META -->
+    <title>Recoil Master • Original PUBG Sensitivity Tool</title>
+    <meta name="description" content="Original PUBG sensitivity generator for 200+ mobiles. Real-time recoil meter, FPS stability, aim accuracy. Device-specific settings, 100% safe.">
+    <meta name="keywords" content="PUBG sensitivity, PUBG recoil tool, BGMI sensitivity, no recoil PUBG, PUBG mobile sensitivity">
+    <link rel="canonical" href="https://pubg-sensitivity-generator.netlify.app/">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- FONTS & ICONS -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER - CHOTA -->
+        <div class="glass header-card">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-crosshairs"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>RECOIL MASTER</h1>
+                    <span>original lab</span>
+                </div>
+            </div>
+            <div class="live-badge">
+                <div class="dot"></div>
+                LIVE
+            </div>
+        </div>
+
+        <!-- MAIN TOOL -->
+        <div class="glass main-card">
+            <!-- BRAND GRID - BILKUL CHOTEY BUTTONS -->
+            <div class="brand-grid" id="brandGrid"></div>
+
+            <!-- DEVICE SECTION - CHOTA -->
+            <div class="device-header">
+                <span><i class="fas fa-mobile-alt" style="color: #00ffee;"></i> MODELS</span>
+                <span class="device-count" id="deviceCount">0</span>
+            </div>
+            
+            <input type="text" class="search-box" id="searchInput" placeholder="🔍 search...">
+
+            <!-- MOBILE LIST - SCROLL -->
+            <div class="mobile-list" id="mobileList"></div>
+
+            <!-- ACTIVE DEVICE BAR -->
+            <div id="activeBar" class="active-bar" style="display: none;">
+                <div class="active-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="active-info">
+                    <h4 id="activeName">-</h4>
+                    <p id="activeSpecs">-</p>
+                </div>
+            </div>
+
+            <!-- METERS - REAL TIME -->
+            <div class="meters-grid">
+                <div class="meter">
+                    <div class="meter-top">
+                        <span class="meter-title"><i class="fas fa-crosshairs" style="color: #ff3b6f;"></i> Recoil</span>
+                        <span class="meter-num" id="recoilVal">0<span class="meter-unit">%</span></span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-fill recoil-fill" id="recoilBar" style="width: 0%;"></div>
+                    </div>
+                </div>
+                <div class="meter">
+                    <div class="meter-top">
+                        <span class="meter-title"><i class="fas fa-tachometer-alt" style="color: #3b9eff;"></i> FPS</span>
+                        <span class="meter-num" id="fpsVal">0<span class="meter-unit">%</span></span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-fill fps-fill" id="fpsBar" style="width: 0%;"></div>
+                    </div>
+                </div>
+                <div class="meter">
+                    <div class="meter-top">
+                        <span class="meter-title"><i class="fas fa-bullseye" style="color: #3bff8c;"></i> Aim</span>
+                        <span class="meter-num" id="aimVal">0<span class="meter-unit">%</span></span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-fill aim-fill" id="aimBar" style="width: 0%;"></div>
+                    </div>
+                </div>
+                <div class="meter">
+                    <div class="meter-top">
+                        <span class="meter-title"><i class="fas fa-hourglass-half" style="color: #ffaa3b;"></i> Lag</span>
+                        <span class="meter-num" id="lagVal">0<span class="meter-unit">ms</span></span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-fill lag-fill" id="lagBar" style="width: 0%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SENSITIVITY SLIDERS -->
+            <div class="sliders-card">
+                <div class="slider-item">
+                    <div class="slider-label">
+                        <span>Camera</span>
+                        <span id="camPer">65%</span>
+                    </div>
+                    <input type="range" id="camSens" min="1" max="100" value="65">
+                </div>
+                <div class="slider-item">
+                    <div class="slider-label">
+                        <span>ADS</span>
+                        <span id="adsPer">58%</span>
+                    </div>
+                    <input type="range" id="adsSens" min="1" max="100" value="58">
+                </div>
+                <div class="slider-item">
+                    <div class="slider-label">
+                        <span>Gyroscope</span>
+                        <span id="gyroVal">280</span>
+                    </div>
+                    <input type="range" id="gyroSens" min="100" max="400" value="280">
+                </div>
+            </div>
+
+            <!-- GENERATE BUTTON -->
+            <button class="gen-btn" id="generateBtn">
+                <i class="fas fa-magic"></i>
+                GENERATE CODE
+                <i class="fas fa-arrow-right"></i>
+            </button>
+
+            <!-- CODE OUTPUT -->
+            <div class="code-box" id="codeBox">
+                <div class="code-header">
+                    <i class="fas fa-check-circle" style="color: #00ffee;"></i>
+                    <span>YOUR PUBG SETTINGS</span>
+                </div>
+                <div class="code-text" id="pubgCode"></div>
+            </div>
+        </div>
+        
+        <!-- FOOTER -->
+        <div class="footer">
+            ORIGINAL TOOL • 200+ DEVICES • REALTIME METERS
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="devices.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
